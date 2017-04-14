@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" type="image/png" href="resources/icono.png"/>
+        <title>Tablero colaborativo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+        <!-- stats.js lib --> 
+        <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid title">
+            <div id="particles-js"></div> 
+            <h1>TABLERO COLABORATIVO</h1>
+        </div>
+        <div class="container-fluid text-center ">    
+            <div class="row content">
+                <div class="col-sm-2 sidenav table-responsive controler">
+                    <h3>Controles</h3>
+                    <table id="controls" class="table table-hover ">
+                        <tr>
+                            <td>Figura:</td>
+                            <td><select id="figura">
+                                    <option value="lapiz">Lapiz</option>
+                                    <option value="linea">Linea</option>
+                                    <option value="borrador">Borrador</option>
+                                    <option value="cuadro">Cuadro</option>
+                                    <option value="circulo">Circulo</option>
+                                    <option value="poligono">Poligono</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Color: </td>
+                            <td><input id="colores" type="color"/></td>
+                        </tr>
+                        <tr>
+                            <td> Grosor: </td>
+                            <td><input id="tamano" type="range" step="1" min="1" max="200" value="5"></td>
+                        </tr>
+                        <tr>
+                            <td>Relleno:</td>
+                            <td><input id="fillBox" type="checkbox"  checked="checked"></td>
+                        </tr>
+                        <tr>
+                            <td>Lados del poligino:</td>
+                            <td><input id="polygonSides" type="range" step="1" min="3" max="10"></td>
+                        </tr>
+                        <tr>
+                            <td>Angulos del poligino:</td>
+                            <td><input id="polygonAngle" type="range" step="22.5" min="0" max="90"></td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="button" onclick="guardar();" value="Guardar" class="btn btn-success"/></td>
+                            <td><input type="button" onclick="limpiar();" value="Limpiar" class="btn btn-success"/></td>
+                        </tr>       
+                    </table>            
+                </div>
+                <div class="col-sm-8 text-left canvas"> 
+                    <canvas id="myCanvas" width="880" height="500"  ></canvas>
+                </div>
+                <div class="col-sm-2 sidenav chat">
+                    <input class="form-control" type="text" id="usuario" placeholder="Ingrese su nombre..."/>
+                    <div id="conversacion"></div>
+                    <div class=" contChat">
+                        <textarea  class="form-control" id="mensaje" placeholder="Ingrese su mensaje..."></textarea>
+                        <button class="btn btn-success" id="btnEnviar">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="container-fluid text-center footer">
+            <p>-- WebSockets -- Arquitectura de Software --</p>
+        </footer>
+        <a href="" id="imagen"></a>
+        <script type="text/javascript" src="Js/websocket.js"></script>
+        <script type="text/javascript" src="Js/whiteboard.js"></script>
+        <script type="text/javascript" src="Js/particle.js"></script>
+    </body>
+</html>
